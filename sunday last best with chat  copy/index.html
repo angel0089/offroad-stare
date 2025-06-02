@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="home.png" type="image/png" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offroad Star</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <div id="map"></div>
+<button id="chatToggleBtn" title="Toggle Chat">💬</button>
+
+
+  <div id="toolbar">
+    <button id="gpsBtn" title="My Location">📍</button>
+    <button id="loadBtn" title="Load GPX">📁</button>
+    <button id="startTrackBtn" title="Start">▶️</button>
+    <button id="stopTrackBtn" title="Stop">⏹</button>
+    <button id="downloadTrackBtn" title="Save">💾</button>
+  </div>
+
+  <div id="statusBar" style="
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(255,255,255,0.95);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;">
+    <span id="liveDistance">📏 0.00 km</span>
+    <span id="liveDuration">⏱ 00:00</span>
+    <span id="liveAltitude">⛰️ — m</span>
+  </div>
+
+  <div id="trackList" style="top: 140px;"></div>
+  <input type="file" id="gpxInput" accept=".gpx" style="display: none" />
+
+  
+<!-- Chat UI -->
+<div id="chatBox">
+  <div id="chatMessages"></div>
+  <div id="chatInputRow">
+    <input id="chatInput" type="text" placeholder="Type a message..." autocomplete="off" />
+    <button id="chatSend">Send</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

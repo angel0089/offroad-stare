@@ -1,0 +1,162 @@
+/* === Page reset ================================================= */
+html, body { height: 100%; margin: 0; padding: 0; }
+#map { height: 100vh; width: 100vw; }
+ 
+#map {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* === Toolbar (left side) ======================================= */
+#toolbar {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1000;
+}
+#toolbar button,
+#toolbar label {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  background: #f6f6f9;
+  box-shadow: 0 0 4px rgba(0,0,0,.2);
+  cursor: pointer;
+}
+#toolbar input { display: none; }
+
+/* === Live-stats panel (moved left) ============================= */
+#liveStats {
+  position: absolute;
+  top: 8px;
+  /* shift panel to the right of toolbar */
+  left: auto;          
+  right: 8px;
+  background: rgba(251, 251, 254, 0.9);
+  padding: 4px 6px;
+  border: 1px solid #ebebef;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.3;
+  z-index: 1000;
+
+  /* stack children top→bottom */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ◼ trackList pulled out as its own box on the right */
+#trackList {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  z-index: 1000;
+  background: white;
+  padding: 2px 8px;
+  max-height: 30px;
+  overflow-y: auto;
+  font-size: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  width: 155px;
+}
+.track-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  padding: 3px 2px;
+  border-radius: 4px;
+  transition: background 0.13s;
+}
+.track-list-item:hover {
+  background: #49648a;
+}
+.track-list-name {
+  font-weight: bold;
+  /* color will be set with inline style for each track */
+}
+.track-delete {
+  background: none;
+  border: none;
+  color: #d23b3b;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 3px;
+}
+.track-delete:hover {
+  color: #c00;
+}
+#chatBox {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 280px;
+  height: 200px;
+  background: rgb(167, 195, 246);
+  border-radius: 8px;
+  box-shadow: 0 0 6px #f6f6f8;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+}
+#chatMessages {
+  flex: 1;
+  padding: 8px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+#chatInputRow {
+  display: flex;
+}
+#chatInput {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+#chatSend {
+  background: rgb(36, 36, 136);
+  color: black;
+  border: 1px solid #ccc;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+}
+#chatBox.collapsed {
+  height: 0;
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#chatBox.collapsed #chatMessages,
+#chatBox.collapsed #chatInputRow {
+  display: none;
+}
+#chatToggleBtn {
+  position: fixed;
+  bottom: 220px;
+  left: 10px;
+  background: rgb(45, 71, 156);
+  color: rgb(29, 29, 123);
+  border: 1px solid #0d0b0b;
+  color: rgb(103, 95, 95);
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1100;
+}
